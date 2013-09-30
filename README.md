@@ -1,4 +1,4 @@
-slide
+Slider
 =====
 
-Testing fadeIn, fadeOut functions in a simple slider
+Testing fadeIn, fadeOut functions in a simple slider.
