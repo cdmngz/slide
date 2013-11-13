@@ -1,8 +1,9 @@
 $(function(){
 	var sliderAct=1;
 	var sliderNext=2;
+	var target = null;
 
-	$("#slider > div#slide1").fadeIn(300);
+	$("#slider > div#slide1").fadeIn(100);
 	startSlider();
 
 	function startSlider(){
@@ -29,9 +30,11 @@ $(function(){
 	
 	$( ".circle" ).click(function(){
         var chi = $(this).index();
-        var chi = chi -2;
-		$("#slider > div").fadeOut(300);	
-		$("#slider > div#slide" + chi).fadeIn(300);
+        if(this != target) {
+        	target = this;
+			chi = chi-2;
+			$("#slider > div").fadeOut(300);	
+			$("#slider > div#slide" + chi).fadeIn(300);	
+		}
 	});
-
 });
