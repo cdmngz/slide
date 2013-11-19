@@ -1,9 +1,10 @@
-$(function(){
-	var sliderAct=1;
-	var sliderNext=2;
-	var target = null;
+$(function() {
+	var sliderAct = 1;
+	var sliderNext = 2;
+	var target;
+	var chi;
 
-	$("#slider > div#slide1").fadeIn(100);
+	$("#slider > div#slide1").css('display','block');
 	startSlider();
 
 	function startSlider(){
@@ -19,7 +20,10 @@ $(function(){
 
 			sliderAct = sliderNext;
 			sliderNext = sliderNext+1;
-		}, 2000);
+			chi = null;
+			target = null;
+			
+		}, 500);
 	};
 
 	function stopSlider(){
@@ -29,12 +33,14 @@ $(function(){
 	$("#slider").hover(function(){ stopSlider(); }, function(){ startSlider(); });
 	
 	$( ".circle" ).click(function(){
-        var chi = $(this).index();
-        if(this != target) {
+        chi = $(this).index();
+		chi = chi-2;
+        if(this != target && chi != sliderAct) {
         	target = this;
-			chi = chi-2;
+			sliderAct = chi;
+			sliderNext = chi+1;
 			$("#slider > div").fadeOut(300);	
-			$("#slider > div#slide" + chi).fadeIn(300);	
+			$("#slider > div#slide" + chi).fadeIn(300);
 		}
 	});
 });
