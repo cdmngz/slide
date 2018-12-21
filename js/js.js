@@ -1,4 +1,6 @@
-$(function() {
+
+$(function(){
+	console.log('existe el cambio');
 	var sliderAct = 1;
 	var sliderNext = 2;
 	var target;
@@ -22,7 +24,7 @@ $(function() {
 			sliderNext = sliderNext+1;
 			chi = null;
 			target = null;
-			
+
 		}, 500);
 	};
 
@@ -31,7 +33,7 @@ $(function() {
 	}
 
 	$("#slider").hover(function(){ stopSlider(); }, function(){ startSlider(); });
-	
+
 	$( ".circle" ).click(function(){
         chi = $(this).index();
 		chi = chi-2;
@@ -39,7 +41,7 @@ $(function() {
         	target = this;
 			sliderAct = chi;
 			sliderNext = chi+1;
-			$("#slider > div").fadeOut(300);	
+			$("#slider > div").fadeOut(300);
 			$("#slider > div#slide" + chi).fadeIn(300);
 		}
 	});
